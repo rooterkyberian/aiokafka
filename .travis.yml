@@ -28,7 +28,7 @@ before_install:
     - sudo apt-get install -y libsnappy-dev
 
 install:
-    - pip install --upgrade pip setuptools wheel
+    - pip install -U pip setuptools wheel twine
     - pip install flake8
     - pip install "pytest<3.3.0" pytest-cov pytest-catchlog docker-py
     - pip install codecov
@@ -48,7 +48,7 @@ deploy:
   provider: pypi
   user: andrew.svetlov
   password:
-    secure: "PyOEy+tshUMOIKJ8TJfSPNuS1yjwpl5iiEO8Iwi1jwBiOhI5aumpHWWeWed/JvyAFRXq+m3vn0WKtK+KzN8rDhSVOfRHONQmCpD9cJ+KMRNA2sOom17CH2n37f3VuiwhjZWXTM4rVE5QTq+5JZVQ02aSdpcaGaIUNtj6T2wahzg="
+    secure: "U1hhoq/pHvhRro1EHO850ixECGpfbmk4dRjTaoY3zQ/E+UpAsYTyK8VZKkfDMKKPyge9zugPWe545ZNW0eJm2uUisHVFguwDOt86DlvmD13d5j5s5O28YCEZnoFq2R140PF+/XyNbKkf6FmveFdVPG0YbrMZ4NiimgDreIDzkhw="
   distributions: "sdist"
   on:
     tags: true
