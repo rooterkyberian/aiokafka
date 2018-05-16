@@ -48,7 +48,7 @@ deploy:
   provider: pypi
   user: andrew.svetlov
   password:
-    secure: bNequAaWVcBKr296rptqi4O1ylONydRydCvUDkohQf4Oa73jx7wNXkBHPcRGlKpCMoU8zcJTh1xkEALW5eLyRgNRwvL3VJEhiy1TZCPByPKLM+uwrrwSP/G5TcSgC4nCBlUHAhun+l85CW/acOJeYFyKxiNeLHAO2thHFYdwWNI=
+    secure: "PyOEy+tshUMOIKJ8TJfSPNuS1yjwpl5iiEO8Iwi1jwBiOhI5aumpHWWeWed/JvyAFRXq+m3vn0WKtK+KzN8rDhSVOfRHONQmCpD9cJ+KMRNA2sOom17CH2n37f3VuiwhjZWXTM4rVE5QTq+5JZVQ02aSdpcaGaIUNtj6T2wahzg="
   distributions: "sdist"
   on:
     tags: true
