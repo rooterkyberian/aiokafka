@@ -26,7 +26,7 @@ else:
 def pytest_addoption(parser):
     parser.addoption('--docker-image',
                      action='store',
-                     default='pygo/kafka:2.11_0.9.0.1',
+                     default=None,
                      help='Kafka docker image to use')
     parser.addoption('--no-pull',
                      action='store_true',
@@ -34,7 +34,10 @@ def pytest_addoption(parser):
 
 
 @pytest.fixture(scope='session')
-def docker():
+def docker(request):
+    image = request.config.getoption('--docker-image')
+    if not image:
+        return None
     return libdocker.Client(version='auto')
 
 
@@ -118,6 +121,10 @@ if sys.platform != 'win32':
     def kafka_server(request, docker, docker_ip_address,
                      unused_port, session_id, ssl_folder):
         image = request.config.getoption('--docker-image')
+        if not image:
+            pytest.skip(
+                "Skipping functional test as `--docker-image` not provided")
+            return
         if not request.config.getoption('--no-pull'):
             docker.pull(image)
         kafka_host = docker_ip_address
