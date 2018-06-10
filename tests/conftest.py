@@ -80,8 +80,10 @@ if sys.platform == 'darwin' or sys.platform == 'win32':
 else:
 
     @pytest.fixture(scope='session')
-    def docker_ip_address(docker):
+    def docker_ip_address(request, docker):
         """Returns IP address of the docker daemon service."""
+        if not docker:
+            return '127.0.0.1'
         # Fallback docker daemon bridge name
         ifname = 'docker0'
         try:
