@@ -1,3 +1,5 @@
+version: "= 0"
+
 language: python
 
 branches:
@@ -10,7 +12,7 @@ branches:
 stages:
 - &stage_sanity_test Unit tests on container workers
 - &stage_functional Run main functional tests
-- &stage_deploy Optionally run deploy
+- name: &stage_deploy Optionally run deploy
   # This will prevent deploy unless it's a tagged commit:
   if: tag IS present
 
