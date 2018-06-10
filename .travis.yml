@@ -1,10 +1,5 @@
 language: python
 
-sudo: required
-
-services:
-- docker
-
 branches:
   only:
   - master
@@ -22,15 +17,22 @@ stages:
 matrix:
   include:
     - stage: *stage_sanity_test
+      sudo: false
+      python: 3.6
       script:
       - make ci-test-unit
 
     - stage: *stage_functional
+      sudo: required
+      python: 3.6
+      services:
+      - docker
       env: KAFKA_VERSION=0.11.0.0 SCALA_VERSION=2.12 PYTHONASYNCIODEBUG=1
       script:
       - make ci-test-all
 
     - stage: *stage_deploy
+      python: 3.6
       script: skip
       deploy:
         provider: pypi
