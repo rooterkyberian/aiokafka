@@ -14,6 +14,7 @@ python:
     - 3.3
     - 3.4
     - 3.6
+    - 3.7
 env:
     matrix:
         - KAFKA_VERSION=0.9.0.1 SCALA_VERSION=2.11 PYTHONASYNCIODEBUG=1
@@ -22,6 +23,11 @@ env:
         - KAFKA_VERSION=0.10.2.1 SCALA_VERSION=2.11 PYTHONASYNCIODEBUG=1 AIOKAFKA_NO_EXTENSIONS=1
         - KAFKA_VERSION=0.11.0.0 SCALA_VERSION=2.12 PYTHONASYNCIODEBUG=1
         - KAFKA_VERSION=0.11.0.0 SCALA_VERSION=2.12 PYTHONASYNCIODEBUG=1 AIOKAFKA_NO_EXTENSIONS=1
+
+matrix:
+    include:
+        - python: 3.7
+          dist: xenial
 
 before_install:
     - sudo apt-get update

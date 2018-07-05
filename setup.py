@@ -73,7 +73,7 @@ class ve_build_ext(build_ext):
             raise BuildFailed()
 
 
-install_requires = ['kafka-python==1.3.5']
+install_requires = ['kafka-python>=1.4.3']
 
 PY_VER = sys.version_info
 
@@ -114,6 +114,7 @@ classifiers = [
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
     'Operating System :: OS Independent',
     'Topic :: System :: Networking',
     'Topic :: System :: Distributed Computing',
